@@ -1,5 +1,6 @@
 package it.mongo.service;
 
+import com.mongodb.client.result.UpdateResult;
 import it.mongo.model.DataTestItem;
 
 import java.util.List;
@@ -8,13 +9,15 @@ public interface IMongoService {
 
     List<DataTestItem> showAllDataTestItems();
 
-    boolean insertData(DataTestItem data);
+    DataTestItem insertData(DataTestItem data);
 
-    boolean deleteAll();
+    void deleteAll();
 
     DataTestItem getByName(String nome);
 
     List<DataTestItem> getByCategoria(String categoria);
 
-    boolean updateAnniByNome(String nome, int anni);
+    UpdateResult updateAnniByNome(String nome, int anni);
+
+    String generateRandomDocument();
 }

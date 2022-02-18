@@ -20,7 +20,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 public class MongoSpringApplication implements CommandLineRunner{
 
     @Autowired
-    IMongoRepository groceryItemRepo;
+    IMongoRepository mongoRepo;
 
 //    @Autowired
 //    ICustomMongoRepository customRepo;
@@ -34,7 +34,7 @@ public class MongoSpringApplication implements CommandLineRunner{
    public void run(String... args) {
 
        // Clean up any previous data
-      // groceryItemRepo.deleteAll(); // Doesn't delete the collection
+      // mongoRepo.deleteAll(); // Doesn't delete the collection
 
        log.info("-------------CREATE GROCERY ITEMS-------------------------------\n");
 
@@ -79,14 +79,14 @@ public class MongoSpringApplication implements CommandLineRunner{
     void createDataTestItems() {
         log.info("Data creation started...");
 
-        groceryItemRepo.save(DataTestItem.builder().id("Kodo Millet1").nome("XYZ Kodo Millet healthy1").anni(21).categoria("millets1").build());
-        groceryItemRepo.save(DataTestItem.builder().id("Kodo Millet2").nome("XYZ Kodo Millet healthy2").anni(22).categoria("millets2").build());
-        groceryItemRepo.save(DataTestItem.builder().id("Kodo Millet3").nome("XYZ Kodo Millet healthy3").anni(23).categoria("millets3").build());
-        groceryItemRepo.save(DataTestItem.builder().id("Kodo Millet4").nome("XYZ Kodo Millet healthy4").anni(24).categoria("millets4").build());
-        groceryItemRepo.save(DataTestItem.builder().id("Kodo Millet5").nome("XYZ Kodo Millet healthy5").anni(25).categoria("millets5").build());
-        groceryItemRepo.save(DataTestItem.builder().id("id1").nome("nome1").anni(21).categoria("categoria1").build());
-        groceryItemRepo.save(DataTestItem.builder().id("id2").nome("nome2").anni(21).categoria("categoria1").build());
-        groceryItemRepo.save(DataTestItem.builder().id("id3").nome("nome3").anni(21).categoria("categoria2").build());
+        mongoRepo.save(DataTestItem.builder().id("Kodo Millet1").nome("XYZ Kodo Millet healthy1").anni(21).categoria("millets1").build());
+        mongoRepo.save(DataTestItem.builder().id("Kodo Millet2").nome("XYZ Kodo Millet healthy2").anni(22).categoria("millets2").build());
+        mongoRepo.save(DataTestItem.builder().id("Kodo Millet3").nome("XYZ Kodo Millet healthy3").anni(23).categoria("millets3").build());
+        mongoRepo.save(DataTestItem.builder().id("Kodo Millet4").nome("XYZ Kodo Millet healthy4").anni(24).categoria("millets4").build());
+        mongoRepo.save(DataTestItem.builder().id("Kodo Millet5").nome("XYZ Kodo Millet healthy5").anni(25).categoria("millets5").build());
+        mongoRepo.save(DataTestItem.builder().id("id1").nome("nome1").anni(21).categoria("categoria1").build());
+        mongoRepo.save(DataTestItem.builder().id("id2").nome("nome2").anni(21).categoria("categoria1").build());
+        mongoRepo.save(DataTestItem.builder().id("id3").nome("nome3").anni(21).categoria("categoria2").build());
 
         log.info("Data creation complete...");
     }
@@ -95,7 +95,7 @@ public class MongoSpringApplication implements CommandLineRunner{
 //    // 1. Show all the data
 //    public void showAllDataTestItems() {
 //
-//        itemList = groceryItemRepo.findAll();
+//        itemList = mongoRepo.findAll();
 //
 //        itemList.forEach(item -> System.out.println(getItemDetails(item)));
 //    }
@@ -103,21 +103,21 @@ public class MongoSpringApplication implements CommandLineRunner{
 //    // 2. Get item by name
 //    public void getDataTestItemByName(String name) {
 //        System.out.println("Getting item by name: " + name);
-//        DataTestItem item = groceryItemRepo.findItemByName(name);
+//        DataTestItem item = mongoRepo.findItemByName(name);
 //        System.out.println(getItemDetails(item));
 //    }
 //
 //    // 3. Get name and items of a all items of a particular category
 //    public void getItemsByCategory(String category) {
 //        System.out.println("Getting items for the category " + category);
-//        List<DataTestItem> list = groceryItemRepo.findAll(category);
+//        List<DataTestItem> list = mongoRepo.findAll(category);
 //
 //        list.forEach(item -> System.out.println("Name: " + item.getNome() + ", Quantity: " + item.getAnni()));
 //    }
 //
 //    // 4. Get count of documents in the collection
 //    public void findCountOfDataTestItems() {
-//        long count = groceryItemRepo.count();
+//        long count = mongoRepo.count();
 //        System.out.println("Number of documents in the collection = " + count);
 //    }
 //
@@ -128,7 +128,7 @@ public class MongoSpringApplication implements CommandLineRunner{
 //        String newCategory = "munchies";
 //
 //        // Find all the items with the category
-//        List<DataTestItem> list = groceryItemRepo.findAll(category);
+//        List<DataTestItem> list = mongoRepo.findAll(category);
 //
 //        list.forEach(item -> {
 //            // Update the category in each document
@@ -136,7 +136,7 @@ public class MongoSpringApplication implements CommandLineRunner{
 //        });
 //
 //        // Save all the items in database
-//        List<DataTestItem> itemsUpdated = groceryItemRepo.saveAll(list);
+//        List<DataTestItem> itemsUpdated = mongoRepo.saveAll(list);
 //
 //        if(itemsUpdated != null)
 //            System.out.println("Successfully updated " + itemsUpdated.size() + " items.");
@@ -151,7 +151,7 @@ public class MongoSpringApplication implements CommandLineRunner{
 //
 //    // DELETE
 //    public void deleteDataTestItem(String id) {
-//        groceryItemRepo.deleteById(id);
+//        mongoRepo.deleteById(id);
 //        System.out.println("Item with id " + id + " deleted...");
 //    }
 //    // Print details in readable form

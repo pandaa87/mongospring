@@ -1,5 +1,7 @@
 package it.mongo.repository;
 
+import com.mongodb.client.result.UpdateResult;
+
 public interface ICustomMongoRepository {
-    boolean updateItemAnni(String itemName, float anni);
+    UpdateResult updateItemAnni(String itemName, float anni);
 }

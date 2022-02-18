@@ -1,5 +1,6 @@
 package it.mongo.repository;
 
+import com.mongodb.client.result.UpdateResult;
 import it.mongo.model.DataTestItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,12 +15,12 @@ public class CustomMongoRepositoryImpl implements ICustomMongoRepository {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    public boolean updateItemAnni(String name, float anni) {
+    public UpdateResult updateItemAnni(String name, float anni) {
         Query query = new Query(Criteria.where("nome").is(name));
         Update update = new Update();
         update.set("anni", anni);
 
-        return mongoTemplate.updateFirst(query, update, DataTestItem.class)==null? Boolean.FALSE : Boolean.TRUE;
+        return mongoTemplate.updateFirst(query, update, DataTestItem.class);
 
 
     }
