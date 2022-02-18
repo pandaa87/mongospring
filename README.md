@@ -1,5 +1,5 @@
 # mongospring
-Simple Crud usign MongoDb and SpringBoot
+Simple Crud using MongoDb and SpringBoot
 
 ##Use this link to choose how to create your docker images for mongoDB
 ###https://www.mongodb.com/compatibility/docker
