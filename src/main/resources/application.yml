@@ -1,0 +1,21 @@
+server:
+  port: @server.port@
+  servlet:
+    context-path: /@project.artifactId@/@apiVersion@
+
+spring:
+  application:
+    name: @project.name@
+  data:
+    mongodb:
+      database: Test
+      uri: mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
+
+# ===============================
+# = SWAGGER
+# ===============================
+springfox.documentation.swagger.v2.path: /api-docs
+swagger:
+  groupname: ${spring.application.name}
+  title: ${spring.application.name}
+  basePackage: it
